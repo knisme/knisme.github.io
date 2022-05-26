@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<title>網頁基礎語法</title>
 		<style>
 			h2 {
 				background-color:#FFA07A;
@@ -11,10 +13,43 @@
 				list-style:none;
 				}
 		</style>
-		<title>網頁基礎語法</title>
+		<script>
+			function game(){
+				x=prompt("輸入1-100內的整數");
+				ans=Math.floor(Math.random()*100+1);
+				while(x!=ans){
+					if(x<ans){
+						x=prompt("錯誤，太小了");
+					}
+					if(x>ans){
+						x=prompt("錯誤，太大了");
+					}
+				}
+				alert("正確");
+			}
+            		i=0;
+			function truth(){
+                		if(i==0){
+					document.querySelector("#start").innerHTML = "這一定是氣象局的陰謀";
+                    			document.querySelector("#truth").innerHTML = "噓";
+                    			i++;
+                		}else if(i==1){
+                			document.querySelector("#start").style.display = "none";
+                    			document.querySelector("#truth").innerHTML = "復原";
+                    			i++;
+                		}else{
+                			document.querySelector("#start").innerHTML = "雲林古坑8.1度 18縣市低溫特報、今起晴朗到周日";
+                    			document.querySelector("#start").style.display = "block";
+                    			document.querySelector("#truth").innerHTML = "真相？";
+                    			i=0;
+                		}
+			}
+		</script>
 	</head>
 	<body style="text-align:center;">
-		<h2>雲林古坑8.1度 18縣市低溫特報、今起晴朗到周日</h2>
+		<button id="top" onclick=game()> 猜數字遊戲 </button>
+		<button id="truth" onclick=truth()> 真相？ </button>
+		<h2 id="start" style="display:block">雲林古坑8.1度 18縣市低溫特報、今起晴朗到周日</h2>
 		<h6>2022-03-08 06:46 聯合報 / 記者邱瓊玉／台北即時報導</h6>
 		<p>氣象局表示，<span style="background-color:yellow;"><b>今(8)日至明(9日)清晨</b></span>大陸冷氣團及
 			<a href="https://edu.cwb.gov.tw/PopularScience/index.php/weather/269" target="_blank">輻射冷卻</a>影響，各地氣溫較低。<br>
@@ -62,6 +97,8 @@
 		 width="600px" height="650px">
 		<p style="color:gray; font-size:80%">△冷氣團及輻射冷卻影響，各地氣溫較低。今晨高雄以北、宜蘭及金門有10度以下氣溫(黃色燈號)發生的機率，請注意。<br>
 		    圖/氣象局提供</p>
+        	<input></input><br>
+		<a href="#top"> 回頂端
 		<p style="background-color:#FFA07A;"><a href="https://www.cwb.gov.tw/V8/C/">
 			<img src="https://www.cwb.gov.tw/V8/assets/img/cwb-logoBlue.svg" width="150px" height="110px"></a></p>
 	</body>
