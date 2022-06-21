@@ -27,28 +27,46 @@
 				}
 				alert("正確");
 			}
-            		i=0;
+			
+            i=0;
 			function truth(){
-                		if(i==0){
+                if(i==0){
 					document.querySelector("#start").innerHTML = "這一定是氣象局的陰謀";
-                    			document.querySelector("#truth").innerHTML = "噓";
-                    			i++;
-                		}else if(i==1){
-                			document.querySelector("#start").style.display = "none";
-                    			document.querySelector("#truth").innerHTML = "復原";
-                    			i++;
-                		}else{
-                			document.querySelector("#start").innerHTML = "雲林古坑8.1度 18縣市低溫特報、今起晴朗到周日";
-                    			document.querySelector("#start").style.display = "block";
-                    			document.querySelector("#truth").innerHTML = "真相？";
-                    			i=0;
-                		}
+                    document.querySelector("#truth").innerHTML = "噓";
+                    i++;
+                }else if(i==1){
+                	document.querySelector("#start").style.display = "none";
+                    document.querySelector("#truth").innerHTML = "復原";
+                    i++;
+                }else{
+                	document.querySelector("#start").innerHTML = "雲林古坑8.1度 18縣市低溫特報、今起晴朗到周日";
+                    document.querySelector("#start").style.display = "block";
+                    document.querySelector("#truth").innerHTML = "真相？";
+                    i=0;
+                }
+			}
+			
+            function comment(){
+            	if(document.querySelector("#comment").style.display == "none"){
+            		comment=document.querySelector("#cin").value;
+                	document.querySelector("#comment").innerHTML = comment;
+                   	document.querySelector("#comment").style.display = "block";
+					document.querySelector("#bt").style.display = "none";
+					document.querySelector("#bt2").style.display = "block";
+					alert("只能留言一次喔");
+				}
+            }
+			
+			function comment2(){
+				document.querySelector("#comment").style.display = "none";
+				document.querySelector("#bt2").style.display = "none";
+				document.querySelector("#cin").style.display = "none";
 			}
 		</script>
 	</head>
 	<body style="text-align:center;">
-		<button id="top" onclick=game()> 猜數字遊戲 </button>
-		<button id="truth" onclick=truth()> 真相？ </button>
+		<button id="top" onclick="game()"> 猜數字遊戲 </button>
+		<button id="truth" onclick="truth()"> 真相？ </button>
 		<h2 id="start" style="display:block">雲林古坑8.1度 18縣市低溫特報、今起晴朗到周日</h2>
 		<h6>2022-03-08 06:46 聯合報 / 記者邱瓊玉／台北即時報導</h6>
 		<p>氣象局表示，<span style="background-color:yellow;"><b>今(8)日至明(9日)清晨</b></span>大陸冷氣團及
@@ -97,7 +115,10 @@
 		 width="600px" height="650px">
 		<p style="color:gray; font-size:80%">△冷氣團及輻射冷卻影響，各地氣溫較低。今晨高雄以北、宜蘭及金門有10度以下氣溫(黃色燈號)發生的機率，請注意。<br>
 		    圖/氣象局提供</p>
-        	<input></input><br>
+        <input id="cin" placeholder="請輸入留言"></input>
+		<button id="bt" style="display:block; margin:0 auto;" onclick="comment()">留言</button>
+		<button id="bt2" style="display:none; margin:0 auto;" onclick="comment2()">刪除留言</button>
+        <p id="comment" style="display:none">留言區</p><br>
 		<a href="#top"> 回頂端
 		<p style="background-color:#FFA07A;"><a href="https://www.cwb.gov.tw/V8/C/">
 			<img src="https://www.cwb.gov.tw/V8/assets/img/cwb-logoBlue.svg" width="150px" height="110px"></a></p>
